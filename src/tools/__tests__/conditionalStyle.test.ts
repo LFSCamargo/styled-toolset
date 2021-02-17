@@ -1,8 +1,13 @@
-import { conditionalStyle } from '../..';
+import { conditionalStyle, getTheme } from '../..';
 
 const props = {
 	active: true,
 	disabled: false,
+	isBlack: true,
+	theme: {
+		white: '#fff',
+		black: '#000',
+	},
 };
 
 describe('Conditional style tool tests', () => {
@@ -24,5 +29,22 @@ describe('Conditional style tool tests', () => {
 	it('should return undefined for not defined falsy', () => {
 		const style = conditionalStyle('disabled')('truthy')(props);
 		expect(style).toBe(undefined);
+	});
+
+	it('should work with getTheme vars when truthy', () => {
+		const white = getTheme('white');
+		const black = getTheme('black');
+		const style = conditionalStyle('isBlack')(black, white)(props);
+		expect(style).toBe(props.theme.black);
+	});
+
+	it('should work with getTheme vars when truthy', () => {
+		const white = getTheme('white');
+		const black = getTheme('black');
+		const style = conditionalStyle('isBlack')(black, white)({
+			...props,
+			isBlack: false,
+		});
+		expect(style).toBe(props.theme.white);
 	});
 });
