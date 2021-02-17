@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+jest.config.js
+.eslintrc.js
+.prettierrc.js
+commitlint.config.js
+rollup.config.js

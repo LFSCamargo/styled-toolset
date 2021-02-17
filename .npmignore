@@ -1,0 +1,10 @@
+dist/**/*.ts.map
+dist/**/*.js.map
+__tests__/
+src/
+coverage/
+.vscode
+.idea
+node_modules/
+npm-debug.log
+.DS_Store

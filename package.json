@@ -1,0 +1,68 @@
+{
+  "name": "styled-toolset",
+  "version": "1.0.0",
+  "description": "A simple toolset for styled-components for using theme variables without code duplicity",
+  "author": "LFSCamargo",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn run:prettier",
+      "yarn lint",
+      "yarn test",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "clean": "rimraf dist/",
+    "prepare": "yarn clean && yarn lint && yarn test && tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "run:prettier": "prettier --config ./.prettierrc.js --write \"src/**/*.ts\"",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
+  },
+  "dependencies": {
+    "big.js": "^6.0.3",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/big.js": "^6.0.2",
+    "@types/jest": "^26.0.20",
+    "@types/ramda": "^0.27.38",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^10.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "husky": "^4.3.8",
+    "jest": "^26.4.2",
+    "jest-environment-node": "^26.3.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.39.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.5"
+  }
+}
