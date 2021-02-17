@@ -10,20 +10,21 @@
     "*.{ts,js}": [
       "yarn run:prettier",
       "yarn lint",
-      "yarn test",
       "git add ."
     ]
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "yarn test && lint-staged"
     }
   },
   "scripts": {
     "test": "jest --verbose",
     "clean": "rimraf dist/",
-    "prepare": "yarn clean && yarn lint && yarn test && tsc",
+    "prepare": "yarn prepare:build && yarn build:package",
+    "build:package": "rollup -c",
+    "prepare:build": "yarn clean && yarn lint && yarn test",
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
     "run:prettier": "prettier --config ./.prettierrc.js --write \"**/*.{ts,md}\"",
     "version:patch": "npm version patch",

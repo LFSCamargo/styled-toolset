@@ -12,31 +12,27 @@ const esm = {
 	sourcemap: true,
 };
 
-const baseConfig = {
-	plugins: [
-		typescript({
-			typescript: require('typescript'),
-		}),
-	],
-	external: [
-		...Object.keys(pkg.dependencies || {}),
-		...Object.keys(pkg.peerDependencies || {}),
-	],
-};
-
-const commonConfig = {
-	...baseConfig,
-	input: './src/index.ts',
-	output: [
-		{
-			file: 'dist/index.js',
-			...cjs,
-		},
-		{
-			file: 'dist/index.esm.js',
-			...esm,
-		},
-	],
-};
-
-export default [nativeModulesConfig, commonConfig];
+export default [
+	{
+		input: './src/index.ts',
+		plugins: [
+			typescript({
+				typescript: require('typescript'),
+			}),
+		],
+		output: [
+			{
+				file: 'dist/index.js',
+				...cjs,
+			},
+			{
+				file: 'dist/index.esm.js',
+				...esm,
+			},
+		],
+		external: [
+			...Object.keys(pkg.dependencies || {}),
+			...Object.keys(pkg.peerDependencies || {}),
+		],
+	},
+];
