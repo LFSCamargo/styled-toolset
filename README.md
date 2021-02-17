@@ -118,6 +118,10 @@ const Wrapper = styled.div`
 
 To contribute simply open a fork of this repo make the changes and open a pull request of your fork following our templates and passing the github actions workflows and also bumping to the latest version
 
+## Releasing
+
+To release a new version you need to bump the version of the project by incrementing the verision of the package.json and adding a new tag with the version bumped and the github actions wil handle the release
+
 # Honorable Mentions
 
 <a href="https://github.com/ammichael">
