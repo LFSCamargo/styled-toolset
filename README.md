@@ -120,6 +120,6 @@ To contribute simply open a fork of this repo make the changes and open a pull r
 
 # Honorable Mentions
 
-<a href="https://www.styled-components.com">
+<a href="https://github.com/ammichael">
   <img src="https://avatars.githubusercontent.com/u/6873880?s=120&v=4" style="border-radius: 50%;" />
 </a>

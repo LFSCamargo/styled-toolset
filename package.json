@@ -26,7 +26,7 @@
     "clean": "rimraf dist/",
     "prepare": "yarn clean && yarn lint && yarn test && tsc",
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "run:prettier": "prettier --config ./.prettierrc.js --write \"src/**/*.ts\"",
+    "run:prettier": "prettier --config ./.prettierrc.js --write \"**/*.{ts,md}\"",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major"
